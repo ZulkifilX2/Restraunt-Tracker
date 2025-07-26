@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Confirmation - Arrival Bistro N Cafe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/order_confirmation.css') }}">
+</head>
+<body>
+  <div class="order-confirmation-container">
+    <div class="confirmation-header">
+      <h1 class="confirmation-title">Order Confirmed!</h1>
+      <span class="checkmark">&#10003;</span>
+    </div>
+    <div class="order-info">
+      <p>Order Number: <strong>{{ order.orderNumber }}</strong></p>
+      <p>Total: <strong>₹{{ total }}</strong></p>
+      <p>Payment Method: <strong>{{ paymentMethod }}</strong></p>
+      {% if order.dine_option == 'eat_in' and order.table_number %}
+        <p>Table Number: <strong>{{ order.table_number }}</strong></p>
+      {% endif %}
+      {% if order.discount %}
+        <p>Discount Applied: <strong>₹{{ order.discount }}</strong></p>
+      {% endif %}
+    </div>
+    <div class="button-group">
+      <a href="{{ url_for('index') }}" class="btn">Back to Menu</a>
+      <a href="{{ url_for('review') }}" class="btn">Submit a Review</a>
+      <a href="{{ url_for('reviews') }}" class="btn">View Reviews</a>
+    </div>
+  </div>
+</body>
+</html>

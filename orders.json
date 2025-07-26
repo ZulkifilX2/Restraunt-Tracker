@@ -1,0 +1,304 @@
+{
+  "2025-03-27": {
+    "orders": [
+      {
+        "orderNumber": 1,
+        "order_items": [
+          {
+            "category": "Tandoori",
+            "name": "Tandoori chicken",
+            "price": 350.0,
+            "quantity": 2
+          }
+        ],
+        "total": 700.0,
+        "paymentMethod": "cash",
+        "orderTime": "2025-03-27T18:34:17.378880",
+        "status": "payment complete",
+        "dine_option": "eat_in",
+        "table_number": "2",
+        "payment_confirmed": true
+      }
+    ]
+  },
+  "2025-03-28": {
+    "orders": [
+      {
+        "orderNumber": 1,
+        "order_items": [
+          {
+            "category": "Tandoori",
+            "name": "Tandoori chicken",
+            "option": "half|300",
+            "price": 300,
+            "quantity": 1,
+            "size": "half",
+            "total": 300
+          },
+          {
+            "category": "Tandoori",
+            "name": "Afghani chicken",
+            "option": "half|350",
+            "price": 350,
+            "quantity": 1,
+            "size": "half",
+            "total": 350
+          },
+          {
+            "category": "Tandoori",
+            "name": "Tandoori chicken",
+            "option": "full|550",
+            "price": 550,
+            "quantity": 1,
+            "size": "full",
+            "total": 550
+          }
+        ],
+        "total": 1200,
+        "paymentMethod": "cash",
+        "orderTime": "2025-03-28T20:20:13.010520",
+        "status": "payment complete",
+        "dine_option": "eat_in",
+        "table_number": "1",
+        "payment_confirmed": true
+      },
+      {
+        "orderNumber": 2,
+        "order_items": [
+          {
+            "category": "Non Veg",
+            "name": "Chicken changezi",
+            "option": "half|350",
+            "price": 350,
+            "quantity": 1,
+            "size": "half",
+            "total": 350
+          }
+        ],
+        "total": 350,
+        "paymentMethod": "cash",
+        "orderTime": "2025-03-28T20:24:27.379233",
+        "status": "payment complete",
+        "dine_option": "take_away",
+        "table_number": null,
+        "payment_confirmed": true
+      },
+      {
+        "orderNumber": 3,
+        "order_items": [
+          {
+            "category": "Tandoori",
+            "name": "Tandoori chicken",
+            "option": "half|300",
+            "price": 300,
+            "quantity": 1,
+            "size": "half",
+            "total": 300
+          }
+        ],
+        "total": 300,
+        "paymentMethod": "cash",
+        "orderTime": "2025-03-28T20:33:36.929138",
+        "status": "payment complete",
+        "dine_option": "take_away",
+        "table_number": null,
+        "payment_confirmed": true
+      },
+      {
+        "orderNumber": 4,
+        "order_items": [
+          {
+            "category": "Tandoori",
+            "name": "Fish tika",
+            "option": "half|200",
+            "price": 200,
+            "quantity": 1,
+            "size": "half",
+            "total": 200
+          }
+        ],
+        "total": 200,
+        "paymentMethod": "cash",
+        "orderTime": "2025-03-28T23:34:35.318889",
+        "status": "payment complete",
+        "dine_option": "take_away",
+        "table_number": null,
+        "payment_confirmed": true
+      }
+    ]
+  },
+  "2025-03-29": {
+    "orders": [
+      {
+        "orderNumber": 1,
+        "order_items": [
+          {
+            "category": "Barbeque",
+            "name": "Mutton barbeque",
+            "option": "",
+            "price": 150,
+            "quantity": 1,
+            "size": "Regular",
+            "total": 150
+          },
+          {
+            "category": "Barbeque",
+            "name": "Fish barbeque",
+            "option": "",
+            "price": 120,
+            "quantity": 1,
+            "size": "Regular",
+            "total": 120
+          },
+          {
+            "category": "Tandoori",
+            "name": "Tandoori chicken",
+            "option": "half|300",
+            "price": 300,
+            "quantity": 1,
+            "size": "half",
+            "total": 300
+          }
+        ],
+        "total": 570,
+        "paymentMethod": "cash",
+        "orderTime": "2025-03-29T15:43:35.582211",
+        "status": "payment complete",
+        "dine_option": "eat_in",
+        "table_number": "3",
+        "payment_confirmed": true
+      },
+      {
+        "orderNumber": 2,
+        "order_items": [
+          {
+            "category": "Tandoori",
+            "name": "Fish tika",
+            "option": "half|200",
+            "price": 200,
+            "quantity": 1,
+            "size": "half",
+            "total": 200
+          }
+        ],
+        "total": 200,
+        "paymentMethod": "online",
+        "orderTime": "2025-03-29T15:45:06.461292",
+        "status": "payment complete",
+        "dine_option": "take_away",
+        "table_number": null,
+        "payment_confirmed": true
+      },
+      {
+        "orderNumber": 3,
+        "order_items": [
+          {
+            "category": "Tandoori",
+            "name": "Tandoori chicken",
+            "option": "half|300",
+            "price": 300,
+            "quantity": 1,
+            "size": "half",
+            "total": 300
+          },
+          {
+            "category": "Barbeque",
+            "name": "Mutton barbeque",
+            "option": "",
+            "price": 150,
+            "quantity": 1,
+            "size": "Regular",
+            "total": 150
+          }
+        ],
+        "total": 450,
+        "paymentMethod": "online",
+        "orderTime": "2025-03-29T15:58:43.495041",
+        "status": "payment complete",
+        "dine_option": "take_away",
+        "table_number": null,
+        "payment_confirmed": true
+      }
+    ]
+  },
+  "2025-04-29": {
+    "orders": [
+      {
+        "orderNumber": 1,
+        "order_items": [
+          {
+            "category": "Tandoori",
+            "name": "Tandoori chicken",
+            "option": "half|300",
+            "price": 300,
+            "quantity": 1,
+            "size": "half",
+            "total": 300
+          }
+        ],
+        "total": 300,
+        "paymentMethod": "online",
+        "orderTime": "2025-04-29T19:08:46.748099",
+        "status": "payment complete",
+        "dine_option": "eat_in",
+        "table_number": "3",
+        "payment_confirmed": true
+      }
+    ]
+  },
+  "2025-07-24": {
+    "orders": [
+      {
+        "orderNumber": 1,
+        "order_items": [
+          {
+            "category": "Momos",
+            "name": "Kurkure momos",
+            "option": "",
+            "price": 250,
+            "quantity": 1,
+            "size": "Regular",
+            "total": 250
+          },
+          {
+            "category": "Fried",
+            "name": "Mutton kabab",
+            "option": "",
+            "price": 240,
+            "quantity": 1,
+            "size": "Regular",
+            "total": 240
+          }
+        ],
+        "total": 490,
+        "paymentMethod": "cash",
+        "orderTime": "2025-07-24T00:06:56.676343",
+        "status": "payment complete",
+        "dine_option": "eat_in",
+        "table_number": "3",
+        "payment_confirmed": true
+      },
+      {
+        "orderNumber": 2,
+        "order_items": [
+          {
+            "category": "Crispy Items",
+            "name": "Crispy chicken",
+            "option": "half|400",
+            "price": 400,
+            "quantity": 1,
+            "size": "half",
+            "total": 400
+          }
+        ],
+        "total": 400,
+        "paymentMethod": "cash",
+        "orderTime": "2025-07-24T00:07:57.496630",
+        "status": "payment complete",
+        "dine_option": "take_away",
+        "table_number": null,
+        "payment_confirmed": true
+      }
+    ]
+  }
+}

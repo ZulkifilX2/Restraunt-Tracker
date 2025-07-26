@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropdown Menu Example</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dropdown.css') }}">
+</head>
+<body>
+  <nav class="menu">
+    <ul>
+      <li class="item">
+        <a href="#" class="link">
+          Menu
+          <!-- A simple arrow icon using SVG -->
+          <svg viewBox="0 0 20 20">
+            <path d="M5.516 7.548l4.484 4.484 4.484-4.484"></path>
+          </svg>
+        </a>
+        <ul class="submenu">
+          <li class="submenu-item"><a href="#tandoori" class="submenu-link">Tandoori</a></li>
+          <li class="submenu-item"><a href="#veg" class="submenu-link">Veg</a></li>
+          <li class="submenu-item"><a href="#nonveg" class="submenu-link">Non Veg</a></li>
+          <li class="submenu-item"><a href="#fried" class="submenu-link">Fried</a></li>
+          <li class="submenu-item"><a href="#chinese" class="submenu-link">Chinese</a></li>
+          <li class="submenu-item"><a href="#rice" class="submenu-link">Rice</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</body>
+</html>

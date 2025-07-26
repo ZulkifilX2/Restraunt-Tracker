@@ -1,0 +1,64 @@
+/* payment.css */
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .payment-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .payment-title {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.8rem;
+  }
+  
+  .qr-code-container {
+    margin: 20px 0;
+  }
+  
+  .qr-code-img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    border: 5px solid #ff4500;
+    border-radius: 10px;
+  }
+  
+  .payment-instructions {
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0;
+  }
+  
+  .btn {
+    display: inline-block;
+    background: #ff4500;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+  }
+  
+  .btn:hover {
+    background: #e03e00;
+  }
+  

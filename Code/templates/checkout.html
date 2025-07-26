@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout - Arrival Bistro N Cafe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/checkout.css') }}">
+</head>
+<body>
+  <div class="checkout-container">
+    <div class="card">
+      <span class="title">CHECKOUT</span>
+      <div class="content">
+        <h3>Your Cart</h3>
+        <ul class="cart-items">
+          {% for item in cart %}
+            <li>{{ item.quantity }} x {{ item.name }} @ ₹{{ item.price }} each</li>
+          {% endfor %}
+        </ul>
+        <div class="total">Total: ₹{{ total }}</div>
+        <form method="POST" action="{{ url_for('checkout') }}">
+          <div class="form-group">
+            <label>Select Payment Method:</label>
+            <label>
+              <input type="radio" name="payment_method" value="online" required> Online Payment
+            </label>
+            <label>
+              <input type="radio" name="payment_method" value="cash"> Cash
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Dining Option:</label>
+            <label>
+              <input type="radio" name="dine_option" value="eat_in" required> Eat In
+            </label>
+            <label>
+              <input type="radio" name="dine_option" value="take_away" required> Take Away
+            </label>
+          </div>
+          <div class="form-group" id="table-select">
+            <label>Select Table Number:</label>
+            <select name="table_number">
+              <option value="1">Table 1</option>
+              <option value="2">Table 2</option>
+              <option value="3">Table 3</option>
+              <option value="4">Table 4</option>
+            </select>
+          </div>
+          <button type="submit" class="checkout-btn">Confirm Order</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    const dineOptions = document.getElementsByName('dine_option');
+    const tableSelect = document.getElementById('table-select');
+    tableSelect.style.display = 'none';
+    dineOptions.forEach(option => {
+      option.addEventListener('change', function() {
+        if (this.value === 'eat_in') {
+          tableSelect.style.display = 'block';
+        } else {
+          tableSelect.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

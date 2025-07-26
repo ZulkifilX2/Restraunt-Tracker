@@ -1,0 +1,77 @@
+/* order_confirmation.css */
+body {
+  background: #f0f0f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.order-confirmation-container {
+  max-width: 600px;
+  margin: 50px auto;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  text-align: center;
+}
+
+.confirmation-header {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.confirmation-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #333;
+}
+
+.checkmark {
+  font-size: 3rem;
+  color: #4caf50;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+.order-info p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  color: #555;
+}
+
+.order-info p strong {
+  color: #333;
+}
+
+/* Button Group with Flex Layout */
+.button-group {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button-group a {
+  padding: 10px 20px;
+  background: #ff4500;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+/* On small screens, stack buttons */
+@media screen and (max-width: 480px) {
+  .button-group a {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+}
+
+.button-group a:hover {
+  background: #e03e00;
+}

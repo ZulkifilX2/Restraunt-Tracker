@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arrival Bistro N Cafe</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    /* Minimal inline override for readability */
+    .content-overlay {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px;
+    }
+    .options {
+      list-style: none;
+      padding: 0;
+      margin: 5px 0;
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="content-overlay">
+    <header id="home">
+      <h1>Arrival Bistro N Cafe</h1>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('index') }}#menu">Menu</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="welcome">
+      <h2>Welcome</h2>
+      <p>
+        Experience the taste of exquisite cuisine at Arrival Bistro N Cafe.
+        Enjoy a wide range of delicacies made from the freshest ingredients in a warm and inviting atmosphere.
+      </p>
+    </section>
+    <section id="menu">
+      <h2>Our Menu</h2>
+      {% for category, items in menu.items() %}
+        <div class="menu-category">
+          <details open>
+            <summary>{{ category }} ({{ items|length }})</summary>
+            <ul>
+              {% for item in items %}
+                {% if availability[item.name] %}
+                  <li>
+                    <strong>{{ item.name }}</strong>
+                    {% if item.options is defined %}
+                      <!-- Begin form for item with options -->
+                      <form action="{{ url_for('add_to_cart') }}" method="POST" class="add-to-cart-form">
+                        <input type="hidden" name="category" value="{{ category }}">
+                        <input type="hidden" name="item_name" value="{{ item.name }}">
+                        <!-- Dropdown for option selection inside the form -->
+                        <label style="font-size:0.9em; display:block; margin-top:5px;">
+                          Choose Option:
+                          <select name="option-select" class="option-select">
+                            {% for option in item.options %}
+                              <option value="{{ option.size }}|{{ option.price }}">
+                                {{ option.size|capitalize }} - ₹{{ option.price }} ({{ option.description }})
+                              </option>
+                            {% endfor %}
+                          </select>
+                        </label>
+                        <!-- Hidden input to store the selected option -->
+                        <input type="hidden" name="option" value="">
+                        <label style="font-size:0.9em;">Qty:
+                          <input type="number" name="quantity" value="1" min="1" style="width:50px; margin-left:5px;">
+                        </label>
+                        <button type="submit" class="button">
+                          <div class="shadow"></div>
+                          <div class="edge"></div>
+                          <div class="front">
+                            <span>Add to Cart</span>
+                          </div>
+                        </button>
+                      </form>
+                      <!-- End form for item with options -->
+                    {% else %}
+                      - ₹{{ item.price }}<br>
+                      <small>{{ item.description }}</small>
+                      <div class="left-align" style="margin-top:5px;">
+                        <form action="{{ url_for('add_to_cart') }}" method="POST" class="add-to-cart-form">
+                          <input type="hidden" name="category" value="{{ category }}">
+                          <input type="hidden" name="item_name" value="{{ item.name }}">
+                          <label style="font-size:0.9em;">Qty:
+                            <input type="number" name="quantity" value="1" min="1" style="width:50px; margin-left:5px;">
+                          </label>
+                          <button type="submit" class="button">
+                            <div class="shadow"></div>
+                            <div class="edge"></div>
+                            <div class="front">
+                              <span>Add to Cart</span>
+                            </div>
+                          </button>
+                        </form>
+                      </div>
+                    {% endif %}
+                  </li>
+                {% else %}
+                  <li>
+                    <strong>{{ item.name }}</strong> - Unavailable
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </details>
+        </div>
+      {% endfor %}
+    </section>
+    <a href="{{ url_for('cart') }}" class="floating-cart">View Cart</a>
+    <footer>
+      <p>&copy; 2025 Arrival Bistro N Cafe. All Rights Reserved.</p>
+      <p>FSSAI License No. 21022071000137</p>
+    </footer>
+  </div>
+
+  <script>
+    // Set default value for hidden "option" input from the select element in each form on page load
+    document.querySelectorAll('.add-to-cart-form').forEach(function(form) {
+      var selectElem = form.querySelector('select.option-select');
+      if (selectElem) {
+        var hiddenInput = form.querySelector('input[name="option"]');
+        if (hiddenInput) {
+          hiddenInput.value = selectElem.value; // Set default to first option
+        }
+      }
+    });
+
+    // When the form is submitted, update the hidden input with the current select value.
+    document.querySelectorAll('.add-to-cart-form').forEach(function(form) {
+      form.addEventListener('submit', function(e) {
+        var selectElem = form.querySelector('select.option-select');
+        if (selectElem) {
+          var hiddenInput = form.querySelector('input[name="option"]');
+          if (hiddenInput) {
+            hiddenInput.value = selectElem.value;
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+/* Custom Dropdown for Option Selection */
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 300px;
+  margin-top: 5px;
+  font-size: 0.9em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+
+.dropdown-link {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-link span {
+  color: #333;
+}
+
+.dropdown-link svg {
+  width: 14px;
+  height: 14px;
+  fill: #333;
+  transition: transform 0.3s ease;
+}
+
+.custom-dropdown.open .dropdown-link svg {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  z-index: 100;
+}
+
+.custom-dropdown.open .dropdown-menu {
+  max-height: 200px; /* Adjust as needed */
+}
+
+.dropdown-menu li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.dropdown-menu li:hover {
+  background: #f0f0f0;
+}

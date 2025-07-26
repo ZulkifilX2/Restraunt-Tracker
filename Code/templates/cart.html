@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart - Arrival Bistro N Cafe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Global Styles */
+    body {
+      background: #fff8e7; /* Warm, light orange background */
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    /* Cart Container */
+    .cart-container {
+      max-width: 700px;
+      margin: 50px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      padding: 30px;
+      text-align: center;
+    }
+    /* Header */
+    .cart-header {
+      margin-bottom: 20px;
+    }
+    .cart-header h1 {
+      color: #ff4500;
+      font-size: 2.2em;
+      margin: 0;
+    }
+    /* Cart Items List */
+    .cart-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .cart-item {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      padding: 15px 0;
+    }
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+    .item-details {
+      flex: 1;
+      text-align: left;
+    }
+    .item-details p {
+      margin: 5px 0;
+      color: #333;
+      font-size: 16px;
+    }
+    .item-details p strong {
+      color: #ff4500;
+    }
+    /* Cart Subtotal (aligned left) */
+    .cart-subtotal {
+      margin-top: 20px;
+      font-size: 1.6em;
+      font-weight: bold;
+      color: #333;
+      text-align: left;
+      padding-left: 10px;
+    }
+    /* Button Group */
+    .btn-group {
+      display: flex;
+      justify-content: space-around;
+      gap: 15px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      background: #ff4500;
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 20px;
+      border-radius: 5px;
+      font-size: 1.1em;
+      text-align: center;
+      transition: background 0.3s ease;
+      flex: 1 1 45%;
+    }
+    .btn:hover {
+      background: #e03e00;
+    }
+    /* Remove Button */
+    .remove-btn {
+      background: none;
+      border: none;
+      color: red;
+      font-size: 22px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    /* Empty Cart Message */
+    .empty-cart {
+      font-size: 1.2em;
+      color: #333;
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="cart-container">
+    <div class="cart-header">
+      <h1>Your Cart</h1>
+    </div>
+    {% if cart %}
+      <ul class="cart-items">
+        {% for item in cart %}
+          <li class="cart-item">
+            <div class="item-details">
+              <p><strong>{{ item.quantity }} x {{ item.name }}</strong>
+                {% if item.size and item.size != "Regular" %}
+                  ({{ item.size|capitalize }})
+                {% endif %}
+              </p>
+              <p>Price: ₹{{ item.price }} each</p>
+              <p>Subtotal: ₹{{ item.total }}</p>
+            </div>
+            <div>
+              <!-- Remove item form -->
+              <form action="{{ url_for('remove_from_cart', index=loop.index0) }}" method="POST">
+                <button type="submit" class="remove-btn">&times;</button>
+              </form>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+      <div class="cart-subtotal">
+        Subtotal: ₹{{ total }}
+      </div>
+      <div class="btn-group">
+        <a href="{{ url_for('checkout') }}" class="btn">Proceed to Payment</a>
+        <a href="{{ url_for('index') }}" class="btn">Back to Menu</a>
+      </div>
+    {% else %}
+      <p class="empty-cart">Your cart is empty.</p>
+      <div class="btn-group">
+        <a href="{{ url_for('index') }}" class="btn">Back to Menu</a>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>

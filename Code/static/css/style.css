@@ -1,0 +1,381 @@
+/* ------------------------- */
+/* Global & Base Styles      */
+/* ------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+header {
+  background: #333;
+  color: #fff;
+  padding: 20px 10px;
+}
+header h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+nav ul li {
+  margin: 0 15px;
+}
+nav ul li a {
+  color: #fff;
+  font-weight: bold;
+}
+section {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1000px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+section h2 {
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ff4500;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+.menu-category details {
+  background: #f0f0f0;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.menu-category summary {
+  font-weight: bold;
+  font-size: 1.1em;
+  cursor: pointer;
+  outline: none;
+}
+.menu-category ul {
+  list-style-type: none;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+.menu-category li {
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+}
+.menu-category li:last-child {
+  border-bottom: none;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #333;
+  color: #fff;
+  margin-top: 30px;
+}
+
+/* ------------------------- */
+/* Floating Cart Button      */
+/* ------------------------- */
+.floating-cart {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff4500;
+  color: #fff;
+  padding: 20px 25px;  /* Increased padding for a larger button */
+  font-size: 20px;     /* Increased font size */
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+.floating-cart:hover {
+  background: #e03e00;
+}
+
+/* ------------------------- */
+/* Order Button (if needed)  */
+/* ------------------------- */
+.order-button {
+  display: inline-block;
+  background: #ff4500;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+.order-button:hover {
+  background: #e03e00;
+}
+
+/* ------------------------- */
+/* Main Action Buttons (.btn)*/
+/* From Uiverse.io by kleenpulse */
+.btn {
+  --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
+  --border-width: 0.125em;
+  --curve-size: 0.5em;
+  --blur: 30px;
+  --bg: #080312;
+  --color: #afffff;
+  color: var(--color);
+  cursor: pointer;
+  position: relative;
+  isolation: isolate;
+  display: inline-grid;
+  place-content: center;
+  padding: 0.5em 1.5em;
+  font-size: 17px;
+  border: 0;
+  text-transform: uppercase;
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.6);
+  clip-path: polygon(
+    0% var(--curve-size),
+    var(--curve-size) 0,
+    100% 0,
+    100% calc(100% - var(--curve-size)),
+    calc(100% - var(--curve-size)) 100%,
+    0 100%
+  );
+  transition: color 250ms;
+}
+.btn::after,
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.btn::before {
+  background: var(--border-color);
+  background-size: 300% 300%;
+  animation: move-bg7234 5s ease infinite;
+  z-index: -2;
+}
+@keyframes move-bg7234 {
+  0% { background-position: 31% 0%; }
+  50% { background-position: 70% 100%; }
+  100% { background-position: 31% 0%; }
+}
+.btn::after {
+  background: var(--bg);
+  z-index: -1;
+  clip-path: polygon(
+    var(--border-width) calc(var(--curve-size) + var(--border-width) * 0.5),
+    calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
+    calc(100% - var(--border-width)) var(--border-width),
+    100% calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)) 100%,
+    var(--border-width) 100%
+  );
+  transition: clip-path 500ms;
+}
+.btn:where(:hover, :focus)::after {
+  clip-path: polygon(
+    calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    calc(100% - var(--border-width)) var(--border-width),
+    calc(100% - var(--border-width)) var(--border-width),
+    calc(100% - var(--border-width)) calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width)),
+    calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)) calc(100% - var(--border-width))
+  );
+  transition: 200ms;
+}
+.btn:where(:hover, :focus) {
+  color: #fff;
+}
+
+/* ------------------------- */
+/* Add to Cart Buttons (.button) */
+/* Shifted to left by wrapping form in a left-aligned container */
+.button {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+  font-family: sans-serif;
+}
+.button .shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  transform: translateY(2px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+.button .edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: linear-gradient(
+    to left,
+    hsl(217, 33%, 16%) 0%,
+    hsl(217, 33%, 32%) 8%,
+    hsl(217, 33%, 32%) 92%,
+    hsl(217, 33%, 16%) 100%
+  );
+}
+.button .front {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  font-size: 1.25rem;
+  color: white;
+  background: hsl(217, 33%, 17%);
+  border-radius: 8px;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+.button:hover .shadow {
+  transform: translateY(4px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+.button:hover .front {
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+.button:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+.button:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+.button .front span {
+  user-select: none;
+}
+
+.clear {
+  clear: both;
+}
+
+/*Order_confirmation Checkbox*/
+.checkBox {
+  display: block;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(239, 82, 10, 0);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 0px 0px 2px #37f801;
+}
+
+.checkBox div {
+  width: 60px;
+  height: 60px;
+  background-color: #22f207;
+  top: -52px;
+  left: -52px;
+  position: absolute;
+  transform: rotateZ(45deg);
+  z-index: 100;
+}
+
+.checkBox input[type=checkbox]:checked + div {
+  left: -10px;
+  top: -10px;
+}
+
+.checkBox input[type=checkbox] {
+  position: absolute;
+  left: 50px;
+  visibility: hidden;
+}
+
+.transition {
+  transition: 300ms ease;
+}
+
+/* ------------------------- */
+/* Checkbox CSS for Owner Confirmation */
+.checkbox-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+}
+.checkbox {
+  display: none;
+}
+.checkbox-label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+.checkbox-flip {
+  width: 60px;
+  height: 60px;
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: transform 0.4s ease;
+}
+.checkbox-front,
+.checkbox-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  transition: transform 0.3s ease;
+}
+.checkbox-front {
+  background: linear-gradient(135deg, #ff6347, #f76c6c);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transform: rotateY(0deg);
+}
+.checkbox-back {
+  background: linear-gradient(135deg, #36b54a, #00c1d4);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transform: rotateY(180deg);
+}
+.checkbox-wrapper:hover .checkbox-flip {
+  transform: scale(1.1);
+  transition: transform 0.4s ease-out;
+}
+.checkbox:checked + .checkbox-label .checkbox-front {
+  transform: rotateY(180deg);
+}
+.checkbox:checked + .checkbox-label .checkbox-back {
+  transform: rotateY(0deg);
+}
+.checkbox:focus + .checkbox-label .checkbox-flip {
+  box-shadow: 0 0 15px rgba(54,181,73,0.7), 0 0 20px rgba(0,193,212,0.4);
+  transition: box-shadow 0.3s ease;
+}
+.icon-path {
+  stroke: white;
+  stroke-width: 2;
+  fill: transparent;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Online Payment - Arrival Bistro N Cafe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Link to external CSS file for payment page -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/payment.css') }}">
+</head>
+<body>
+  <div class="payment-container">
+    <div class="payment-card">
+      <h2 class="payment-title">Online Payment</h2>
+      <div class="qr-code-container">
+        <img src="{{ url_for('static', filename='images/QR.png') }}" alt="Payment QR Code" class="qr-code-img">
+      </div>
+      <p class="payment-instructions"><strong>SCAN THE QR CODE TO COMPLETE YOUR PAYMENT</strong></p>
+      <p class="payment-instructions"><strong>SHOW SCREENSHOT OF PAYMENT TRANSACTION BEFORE LEAVING</strong></p>
+      <a href="{{ url_for('index') }}" class="btn">Back to Menu</a>
+    </div>
+  </div>
+</body>
+</html>
